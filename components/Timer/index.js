@@ -1,6 +1,7 @@
 import React from "react";
-import { StatusBar } from "react-native";
+import { StatusBar, Platform } from "react-native";
 import styled from "styled-components";
+import Btn from "../Btn";
 
 const Container = styled.View`
   flex: 1;
@@ -35,7 +36,16 @@ const Timer = () => {
         <Time>25:00</Time>
       </Upper>
       <Lower>
-        <T>Button Here</T>
+        <Btn
+          iconName={
+            Platform.OS === "ios" ? "ios-play-circle" : "md-play-circle"
+          }
+          onPress={() => alert("hello")}
+        />
+        <Btn
+          iconName={Platform.OS === "ios" ? "ios-pause" : "md-pause"}
+          onPress={() => alert("hi")}
+        />
       </Lower>
     </Container>
   );
